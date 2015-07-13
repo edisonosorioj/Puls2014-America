@@ -1,3 +1,63 @@
+/*@font-face {
+    font-family: 'open_sansregular';
+    src: url('fuentes/OpenSans-Regular-webfont.eot');
+    src: url('fuentes/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fuentes/OpenSans-Regular-webfont.woff') format('woff'),
+         url('fuentes/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('fuentes/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fuentes/icomoon.eot?-706e8e');
+	src:url('fuentes/icomoon.eot?#iefix-706e8e') format('embedded-opentype'),
+		url('fuentes/icomoon.ttf?-706e8e') format('truetype'),
+		url('fuentes/icomoon.woff?-706e8e') format('woff'),
+		url('fuentes/icomoon.svg?-706e8e#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lapiz:before {
+	content: "\e600";
+	margin-right: 0.5em;
+}
+.icon-estrella:before {
+	content: "\e601";
+	color: yellow;
+	margin-right: 0.4em;
+	position: relative;
+	top: 0.1em;
+
+}
+.icon-f-arriba:before {
+	content: "\e602";
+	color: green;
+}
+.icon-f-abajo:before {
+	content: "\e603";
+	color: #DD4F24;
+}
+
+
 a
 {
 	color: #22BCE0;
@@ -6,7 +66,7 @@ a
 body
 {
 	background: #c3c3c3;
-	font-family: "Arial";
+	font-family: "Open Sans";
 	font-size: 16px;
 }
 header
@@ -27,12 +87,26 @@ header h1
 	font-weight: normal;
 	margin: 1em 70px 0 0;
 }
-header #logo img
+header #logo
 {
 	border-right: 1px solid white;
+	margin-right: 0.5em;
+	/*webkit-transform:rotate(90deg);*/
+	/*moz-transform:rotate(90deg);
+	o-transform:rotate(90deg);
+	ms-transform:rotate(90deg);
+*/
+}
+header #logo img
+{
 	padding-right: 0.5em;
 	margin-right: 0.5em;
 	width: 52px;
+	-webkit-transition: 0.5s;
+}
+header #logo img:hover{
+	-webkit-transform:rotate(360deg);
+
 }
 header #avatar
 {
@@ -49,8 +123,8 @@ header #avatar img
 }
 footer
 {
-	color: rgba(255,255,255,0.7);
-	color: white;
+	color: rgba(255,255,255,0.8);
+	/*color: white;*/
 	background: #22BCE0;
 	text-align: center;
 	padding: 1em;
@@ -73,8 +147,9 @@ footer p:last-child:before
 }
 nav
 {
-	background: #80BCA3;
-	padding: 0 0.5em;
+	background: #80BCA3; /* Cambio de color de fondo*/
+	box-shadow: rgba(0,0,0,0.5) 0px 0px 10px; 
+	padding: 0 5.5em 0 0;
 	position: relative;
 }
 nav ul
@@ -89,16 +164,21 @@ nav ul li
 	display: inline-block;
 	margin: 0 1em 0 0;
 }
+nav ul li a:hover{
+	background: #343B54;
+}
 nav ul li a
 {
 	color: white;
 	display: block;  /*Convertir en bloque*/
 	padding: 0.5em 0.5em;
+	text-decoration: none;
+	-webkit-transition: 0.3s;
 }
 nav ul #publicar_nav
 {
 	position: absolute;
-	top: -0.3em;
+	top: -0.1em;
 	right: 0;
 }
 nav ul #publicar_nav a
@@ -106,12 +186,24 @@ nav ul #publicar_nav a
 	background: #22BCE0;
 	border-radius: 5px;
 	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
-	padding: 0.8em 0.5em;
+	padding: 0.8em 0.5em 0.8em 2em;
 	font-style: italic;
 	text-decoration: none;
 	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
 }
+nav ul #publicar_nav a:before{
+	position: absolute;
+	left: 0.5em;
+	top: 0.8em;
+	-webkit-transition: 0.3s;
+}
+nav ul #publicar_nav a:hover:before{
+	font-size: 20px;
 
+}
+aside{
+	display: none;
+}
 #contenido
 {
 	margin: 1em;
@@ -174,15 +266,55 @@ nav ul #publicar_nav a
 {
 	background: white;
 	border-radius: 0 0 0.5em 0.5em;
-	left: 5%;
+	left: 1%;
 	margin-top: 3px;
 	padding: 0.2em 0.5em;
 	position: absolute;
 	top: 100%;
-	width: 90%
+	width: 95%
+}
+#contenido .item .votacion .down, 
+#contenido .item .votacion .up
+{
+	text-decoration: none;
 }
 #contenido .item .votacion .comentarios_item,
 #contenido .item .votacion .guardar_item
 {
+	text-decoration: none;
 	float: right;
+}
+
+/*@media print{
+	body{
+		font-size: 50px;
+	}
+} */
+
+@media screen and (min-width:800px){
+	#contenido{
+		overflow: hidden;
+	}
+
+	#contenido .item{
+		width: 48%;
+		float: left;
+		margin-right: 1%;
+	}
+	#contenido .item:nth-child(odd){/*solo toma los cambios a los impares. even para pares*/
+		margin-right: 2%;
+	}
+}
+
+@media screen and (min-width:1000px){
+	aside{
+		display: block;
+		float: right;
+		margin: 1em;
+		width: 20%;
+	}
+	aside video{
+		width: 100%
+	}
+
 }
