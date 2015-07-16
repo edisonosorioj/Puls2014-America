@@ -2,12 +2,13 @@ var $form = $('#formulario'),
 	$titulo = $('#titulo'),
 	$url = $('#url'),
 	$button = $('#mostrar-form'),
-	$list = $('#contenido'),
-	$post = $('.item').first();
+	$post = $('.item').first(),
+	$list = $('#contenido');
 
 
 function mostrarFormulario(){ //Prmite mostrar y ocultar el formulario
 	$form.slideToggle();
+	$list.slideToggle();
 }
 
 function agregarPost() {
@@ -21,7 +22,8 @@ function agregarPost() {
 
 	$clone.hide();
 
-	$list.prepend($clone);
+	$list.prepend($clone); //Agregar elemento al primer elemto de la lista o el APEND es al final.
+	mostrarFormulario();
 
 	$clone.fadeIn();
 
