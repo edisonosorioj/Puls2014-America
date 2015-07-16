@@ -197,8 +197,9 @@ nav ul #publicar_nav a:before{
 	top: 0.8em;
 	-webkit-transition: 0.3s;
 }
-nav ul #publicar_nav a:hover:before{
-	font-size: 20px;
+nav ul #publicar_nav a:hover{
+	/*font-size: 20px;*/
+	box-shadow: 0 0 30px yellow;
 
 }
 aside{
@@ -316,5 +317,41 @@ aside{
 	aside video{
 		width: 100%
 	}
+
+}
+
+
+/**
+*FORMULARIO
+*/
+
+.formulario{
+	padding: 1em;
+	text-align: right;
+	display: none;
+}
+
+
+.formulario input{
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 0.2em 0.6em;
+}
+
+
+
+.formulario input[type="submit"]{
+	background: #22BCE0;
+	border-color: #22BCE0;
+	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
+	font-style: italic;
+	text-decoration: none;
+	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
+	color: white;
+	-webkit-transition: 0.3s;
+}
+
+.formulario input[type="submit"]:hover{
+	box-shadow: 0 0 30px yellow;
 
 }
