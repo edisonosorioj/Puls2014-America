@@ -5,6 +5,15 @@ var $form = $('#formulario'),
 	$post = $('.item').first(),
 	$list = $('#contenido');
 
+if (localStorage.getItem('autosave')) {
+	$titulo.val(sessionStorage.getItem('titulo'));
+	$url.val(sessionStorage.getItem('url'));
+}
+
+var id = setInterval(function () {
+	sessionStorage.setItem('titulo',$titulo.val());
+	sessionStorage.setItem('url',$url.val());
+}, 1000)
 
 function mostrarFormulario(){ //Prmite mostrar y ocultar el formulario
 	$form.slideToggle();
@@ -24,6 +33,9 @@ function agregarPost() {
 
 	$list.prepend($clone); //Agregar elemento al primer elemto de la lista o el APEND es al final.
 	mostrarFormulario();
+
+	$titulo.val(''); //pasarle un valor vacio para que quede al momento de agregarlo.
+	$url.val('');
 
 	$clone.fadeIn();
 
